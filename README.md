@@ -1,1 +1,5 @@
-A learning website about planar graphs with some nice graph visualization javascript magic.
+##A learning website about planar graphs
+
+*partially includes graph visualization javascript magic (http://js.cytoscape.org).
+
+**Visit** https://kryptokommunist.github.io/planar_graphs/ for a **preview**.
