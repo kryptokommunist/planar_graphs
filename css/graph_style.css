@@ -1,0 +1,49 @@
+.thumbnail-graph {
+  height: 240px;
+  width: 240px;
+  position: relative;
+  left: 0;
+  top: 0;
+  background-color: #FAEDEF;
+}
+
+.full-graph{
+  position: absolute;
+}
+
+.dual-graph{
+  position: absolute;
+}
+
+.hidden-graph {
+  visibility: hidden;
+}
+
+definition {
+    display: block;
+    padding: 4px;
+    width: 67%;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+    transition: border .2s ease-in-out;
+    background: #e7f4e7;
+    margin-top: 45px
+}
+
+definition h5 {
+  margin-top: -25px;
+}
+
+.btn-micro {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 2px;
+  padding-right: 2px;
+  margin: 2px;
+  background-color:rgba(0, 0, 0, 0.09);
+}
