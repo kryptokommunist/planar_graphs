@@ -66,29 +66,7 @@
                         </table></small>
                         <hr>
 
-                        <h5>Aufgaben-Legende</h5><small>
-
-                        <p>Alle Feedbacks, die für eine deiner Lösungen bekommen kannst. Zum abschicken der Lösung musst du davor auf <em>Lösungen überprüfen</em> drücken.</p>
-
-                        <table class="table table-hover table-condensed">
-                            <thead><tr>
-                                <td><strong>Eingabefeld</strong></td>
-                                <td><strong>Feedback</strong></td>
-                                </tr></thead>
-
-                            <tr>
-                                <td><img src="https://hpi.de/friedrich/docs/koetzing/units/graphs/img/userInput/input-has-success.png" height="32px" /></td>
-                                <td>Richtige Antwort</td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://hpi.de/friedrich/docs/koetzing/units/graphs/img/userInput/input-has-warning.png" height="32px" /></td>
-                                <td>Bisher noch keine Eingabe oder falsches Eingabeformat</td>
-                            </tr>
-                            <tr>
-                                <td><img src="https://hpi.de/friedrich/docs/koetzing/units/graphs/img/userInput/input-has-error.png" height="32px" /></td>
-                                <td>Falsche Lösung, vielleicht auch falsches Eingabeformat.</td>
-                            </tr>
-                        </table></small>
+                        </small>
 
 
                     </div>
@@ -150,6 +128,7 @@
                         <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="navigationDropdownMenu">
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#anchor_navigation-1" onclick="closeNavigationDropdown()">1. Was ist ein planarer Graph?</a></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#anchor_navigation-2" onclick="closeNavigationDropdown()">2. Der duale Graph</a></li>
+                              <li role="presentation"><a role="menuitem" tabindex="-1" href="#anchor_navigation-3" onclick="closeNavigationDropdown()">3. Die Euler-Charakteristik</a></li>
                             <li role="presentation" class="divider"></li>
                             <li role="presentation"><a role="menuitem" tabindex="-1" href="#anchor_navigation-sources" onclick="closeNavigationDropdown()">Weiterführendes Material</a></li>
                         </ul>
@@ -208,21 +187,21 @@
               </div>
           </div>
 
-            Planare Graphen sind eine spezielle Unterkategorie von Graphen mit speziellen Eigenschaften, die sie zu interessanten Objekten mathematischer Betrachtung machen. Mit relativ einfachen Beweisen und Sätzen kann man erstaunlich mächtige Aussagen treffen. Doch dazu später mehr. Auch Anwendungen, wie etwa das Routing von PCB-Boards sind auf planare Graphen angewiesen.<br><br>
-            Du weißt was ein Graph ist? Gut. Ein planarer Graph ist einfach gesagt ein Graph, welcher überkreuzungsfrei gezeichnet werden kann.
+            Planare Graphen sind eine Unterkategorie von Graphen mit speziellen Eigenschaften, die sie zu interessanten Objekten mathematischer Betrachtung machen. Mit relativ einfachen Beweisen und Sätzen kann man erstaunlich mächtige Aussagen treffen. Doch dazu später mehr. Auch konkrete Anwendungen, wie etwa das Routing von PCB-Boards sind auf planare Graphen angewiesen.<br><br>
+            Wir wissen bereits, was ein Graph ist. Ein planarer Graph ist einfach gesagt ein Graph, welcher überkreuzungsfrei gezeichnet werden kann. Die folgende Definition ist nicht die formale Definition, sondern eine vereinfachte Variante.
 
             <definition><h5>Definition planarer Graph</h5> Ein Graph $$G = (V , E )$$ heißt planar oder plättbar, wenn er eine Einbettung in die Ebene besitzt, so dass sich Kanten nur in einem Knoten schneiden.</definition>
 
-            Etwas trennschärfer wird das Konzept mit der Einführung des ebenen Graphen. Quasi der kleine Bruder des planaren Graphen.
+            Etwas trennschärfer wird das Konzept mit der Einführung des ebenen Graphen. Diese Unterscheidung wird später noch wichtig.
 
             <definition><h5>Definition ebener Graph</h5> Ein ebener Graph $$G = (V , E )$$ ist eine konkrete, überkreuzungsfreie Einbettung eines planaren Graphen in die Ebene.</definition>
 
-            Betrachten wir hierzu ein Beispiel. <abbr data-toggle="tooltip" title="Dies bezeichnet den vollständigen bipartiten Graphen mit 2+2 Knoten.">$$K_{2,2}$$</abbr> ist ein planarer Graph, da es eine ebene Einbettung gibt: <button class="btn btn-micro" onclick="showPlaneExample()">Ebener Graph</button>. Aber es gibt auch eine nicht ebene Einbettung des planaren Graphen $$K_{2,2}$$: <button class="btn btn-micro" onclick="showNonPlaneExample()">Nicht ebener Graph</button>.
+            Betrachten wir hierzu ein Beispiel. <abbr data-toggle="tooltip" title="Dies bezeichnet den vollständigen bipartiten Graphen mit 2+2 Knoten.">$$K_{2,2}$$</abbr> ist ein planarer Graph, da es eine ebene Einbettung gibt. Klicke auf die grau eingefärbte Fläche, um die Animation zu starten: <button class="btn btn-micro" onclick="showPlaneExample()">Ebener Graph</button>. Aber es gibt auch eine nicht ebene Einbettung des planaren Graphen $$K_{2,2}$$, die Überkreuzungen enthält: <button class="btn btn-micro" onclick="showNonPlaneExample()">Nicht ebener Graph</button>.
 
-            Schauen wir uns <abbr data-toggle="tooltip" title="Dies bezeichnet den vollständigen Graphen mit 4 bzw. 5 usw. Knoten.">$$K_4, K_5, K_6$$</abbr> <abbr data-toggle="tooltip" title="Dies bezeichnet den vollständigen bipartiten Graphen mit 3+3 bzw. 4+4 usw. Knoten.">$$K_{3,3}, K_{4,4}$$</abbr> an. Welche Graphen sind planar? Kannst du einen ebenen Graphen finden, um dies zu zeigen? Du kannst die Knoten beliebig verschieben.
+            Schauen wir uns <abbr data-toggle="tooltip" title="Dies bezeichnet den vollständigen Graphen mit 4 bzw. 5 usw. Knoten.">$$K_4, K_5, K_6, $$</abbr> <abbr data-toggle="tooltip" title="Dies bezeichnet den vollständigen bipartiten Graphen mit 3+3 bzw. 4+4 usw. Knoten.">$$K_{3,3}, K_{4,4}$$</abbr> an. Welche Graphen sind planar? Können wir einen ebenen Graphen finden, um dies zu zeigen? Wir können die Knoten beliebig verschieben.
 
-            Egal was du versuchst, $$K_5, K_6, K_{3,3}, K_{4,4}$$ lassen sich nicht als ebener Graph darstellen. Es gibt keine überkreuzungsfreie Einbettung in die Ebene. Warum ist das so? Wie können wir das zeigen? Hierzu wird ein cleverer und dennoch einfacher Beweisansatz genutzt. Zeigen wir zuerst, dass $$K_{3,3}$$ nicht planar ist, also keine überkreuzungsfreie Einbettung in die Ebene existiert: <br><br>
-            $$K_{3,3}$$ enthält einen <abbr data-toggle="tooltip" title="Kreis, der alle Knoten enthält">Hamilton-Kreis $$K$$</abbr>: <button class="btn btn-micro" onclick="showK3_3ProofOne()">$$K$$ anzeigen</button>. Betrachten wir diesen Kreis $$K$$: Er zerteilt die Ebene in zwei Flächen, eine innere und eine äußere. Wir sehen, dass dem Subgraphen der $$K$$ enthält nun noch drei weitere Kanten hinzugefügt werden müssen, um $$K_{3,3}$$ zu enthalten. Wenn ich diese Kanten auf der gleichen Seite zeichne, überschneiden sie sich alle. Die einzige Möglichkeit eine Überschneidung zu entfernen ist eine Verlagerung einer Kante auf die andere Seite. Doch bei drei im Konflikt stehenden Kanten und nur zwei Seiten ist dies nicht möglich. Also ist $$K_{3,3}$$ nicht planar.<br><br>
+            Egal was wir versuchen, $$K_5, K_6, K_{3,3}, K_{4,4}$$ lassen sich nicht als ebener Graph darstellen. Es gibt keine überkreuzungsfreie Einbettung in die Ebene. Warum ist das so? Wie können wir das zeigen? Hierzu wird ein cleverer und dennoch einfacher Beweisansatz genutzt. Zeigen wir zuerst, dass $$K_{3,3}$$ nicht planar ist, also keine überkreuzungsfreie Einbettung in die Ebene existiert: <br><br>
+            $$K_{3,3}$$ enthält einen <abbr data-toggle="tooltip" title="Kreis, der alle Knoten enthält">Hamilton-Kreis $$K$$</abbr>: <button class="btn btn-micro" onclick="showK3_3ProofOne()">$$K$$ anzeigen</button>. Betrachten wir diesen Kreis $$K$$: Er zerteilt die Ebene in zwei Flächen, eine innere und eine äußere. Wir sehen, dass dem Subgraphen der $$K$$ enthält nun noch drei weitere Kanten hinzugefügt werden müssen, um $$K_{3,3}$$ zu enthalten. Wenn wir diese Kanten auf der gleichen Seite zeichnen, überschneiden sie sich alle. Die einzige Möglichkeit eine Überschneidung zu entfernen ist eine Verlagerung einer Kante auf die andere Seite. Doch bei drei im Konflikt stehenden Kanten und nur zwei Seiten ist dies nicht möglich. Also ist $$K_{3,3}$$ nicht planar.<br><br>
 
             <!-- Clearfix beacuse of thumbnail -->
             <div class="clearfix"></div>
@@ -297,7 +276,7 @@
 
         <hr>
         <!----------------------------------->
-        <!-- Abschnitt 2: Pfade und Kreise -->
+        <!-- Abschnitt 2: Der duale Graph -->
         <h4 id="anchor_navigation-2">2. Der duale Graph</h4>
 
         <div class="thumbnail pull-right" style="width: 250px;">
@@ -309,11 +288,11 @@
               Hier wird der Ausgangsgraph und später auch der zugehörige duale Graph eingezeichnet.
 
               <!-- Radio-Buttons under class '.picture-switcher' -->
-              <div class="thumbnail-buttons dual-graph-switcher" data-toggle="buttons">
+              <div class="thumbnail-buttons dual-graph-switcher" data-toggle="buttons" id="dual-graph-switcher">
                   <label class="btn btn-default btn-sm active">
                       <input type="radio" name="options" data-target=".dual-graph" data-path="originGraph" autocomplete="off" checked> Graph
                   </label>
-                  <label class="btn btn-default btn-sm">
+                  <label class="btn btn-default btn-sm hidden" id="dual-graph-button">
                       <input type="radio" name="options" data-target=".dual-graph" data-path="dualGraph" autocomplete="off"> Dualer Graph
                   </label>
               </div>
@@ -322,11 +301,11 @@
       </div>
 
 
-      Was mag nur ein dualer Graph sein? Wir werdeb ihn später verwenden, um ein Lemma zu zeigen. Doch bevor du die Definition davon verstehst, muss ich dir erstmal erklären, was die Facette bzw. Fläche eines ebenen Graphen ist.
+      Was mag nur ein dualer Graph sein? Wir werden ihn später verwenden, um ein Lemma zu zeigen. Doch bevor wir die zugehörige Definition verstehen, müssen wir zuerst definieren, was eine Facette bzw. Fläche eines ebenen Graphen ist.
 
       <definition><h5>Definition Facette</h5> In einem ebenen Graph bezeichnet Facette (Fläche) einen von Kanten eingeschlossenen Bereich. Ebenfalls zählt hierzu die sog. äußere Facette, welche den Graphen umgibt.</definition>
 
-      Bevor du dir die Textdefinition antun musst, zeige ich dir einfach mal kurz wie man den dualen Graphen zu einem gegebenen Graphen zeichnet. Betrachte den rechten Graphen, wie sieht der zugehörige duale Graph aus? Er würde wir folgt eingezeichnet. Zuerst zeichnet man in jede Facette des Graphen einen neuen Knoten: <button class="btn btn-micro" onclick="showDualExampleOne()">Einzeichnen</button>. Dieser Graph hat also vier Facetten. Als nächstes wird für jeden eine Fläche repräsentierenden Knoten, wenn diese Fläche an eine andere Fläche angrenzt eine entsprechende Kante zwischen den jeweiligen Knoten eingezeichnet: <button class="btn btn-micro" onclick="showDualExampleTwo()">Einzeichnen</button>.
+      Anstelle einer normalen Definition, zeigen wir an Hand eines Beispiels, wie man den dualen Graphen zu einem gegebenen planaren Graphen zeichnet. Betrachten wir den rechten Graphen, wie sieht der zugehörige duale Graph aus? Er würde wie folgt eingezeichnet: Als erstes zeichnen wir in jede Facette des Graphen einen neuen Knoten: <button class="btn btn-micro" onclick="showDualExampleOne();">Einzeichnen</button>. Dieser Graph hat also vier Facetten. Als nächstes wird für jeden eine Fläche repräsentierenden Knoten, wenn diese Fläche an eine andere Fläche angrenzt, eine entsprechende Kante zwischen den jeweiligen Knoten eingezeichnet: <button class="btn btn-micro" onclick="showDualExampleTwo()">Einzeichnen</button>. Nun sollte uns auch die formalere Definition verständlicher sein:
 
       <definition><h5>Definition Dualer Graph</h5> Der zum ebenen Graphen $$G = (V , E )$$ ebenfalls ebene duale Graph $$G' = (V',E')$$ entsteht, indem in jeder Facette des Graphen $$G$$ neue Knoten $$v'$$ hinzugefügt werden und für jede Kante $$e \in E$$ eine neue Kante $$e'$$ erstellt wird, die die $$v'$$ der beiden angrenzenden Facetten verbindet.</definition>
 
@@ -336,10 +315,6 @@
 
       Wir bezeichnen die Facetten in obigem Beispiel der Einfachheit halber einfach mit dem Namen des korrespondierenden Knoten. In unserem Beispiel hat also die Facette $$a'$$ die Länge 2, $$b'$$ die Länge 3 usw..
 
-
-    <!--
-- Sätze zu Euler/Hamilton
--->
 
     <!-- Clearfix beacuse of thumbnail -->
     <div class="clearfix"></div>
@@ -380,6 +355,85 @@
 
 </div>
 
+<hr>
+
+<!-- Abschnitt 3: ie Euler-Charakteristik -->
+<h4 id="anchor_navigation-3">3. Die Euler-Charakteristik</h4>
+
+<div class="thumbnail pull-right" style="width: 250px; height: 404px;">
+            <img id="graph-kreise-pfade-img" src="img/k6_blank.png">
+            <div class="caption">
+
+                Wir haben zuvor gezeigt, dass $$K_6$$ und $$K_7$$ nicht planar sind. Dies gilt jedoch nicht für $$K_6$$ in der  <abbr data-toggle="tooltip" title="Ein Vergleich wäre die Ebene bei Snake. Oder die Innenfläche einer Kugel.">projektiven Ebene</abbr> oder etwa $$K_7$$ im <abbr data-toggle="tooltip" title="Ähnlich Innenseite eines Donuts."><a href="https://de.wikipedia.org/wiki/Torus">Torus</a>.
+
+                <!-- Radio-Buttons under class '.picture-switcher' -->
+                <div class="thumbnail-buttons picture-switcher" data-toggle="buttons">
+                    <label class="btn btn-default btn-sm active">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="img/k6_blank.png" autocomplete="off">projektive Ebene
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="img/k6.png" autocomplete="off">$$K_6$$ planar
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="img/k7_blank.png" autocomplete="off" checked="">Torus
+                    </label>
+                    <label class="btn btn-default btn-sm">
+                        <input type="radio" name="options" data-target="#graph-kreise-pfade-img" data-path="img/k7.png" autocomplete="off">$$K_7$$ planar
+                    </label>
+                </div>
+
+            </div>
+</div>
+
+Eine für viele Beweise sehr hilfreiche Eigenschaft planarer Graphen ist, dass alle ebenen Einbettungen dieser die von Leonhard Euler 1750 (wieder-)entdeckte Formel erfüllen.
+
+<definition><h5>Definition Euler-Charakteristik (f. planare Graphen)</h5>Für einen zusammenhängenden, ebenen Graphen $$G$$ mit $$n$$ Knoten, $$e$$ Kanten und $$f$$ Facetten gilt: $$n − e + f = 2$$</definition>
+
+Der Beweis der Eulercharakteristik für einen ebene Graphen $$G$$ erfolgt per Induktion über die Kantenzahl $$e$$. Im Folgenden ist eine Beweisskizze dargestellt.<br><br>
+
+IA: ($$e=0$$)<br><br>
+
+Da der Graph zusammenhängend ist folgt hieraus, dass die Knotenzahl $$n=1$$ und somit die Facettenzahl $$f=1$$ ist. Also gilt $$n - e + f = 1 - 0 + 1 = 2$$ und somit die Euler-Charakteristik.<br><br>
+
+IS: ($$e>=1$$)<br><br>
+
+Ist $$G$$ ein Baum, dann ist $$e=n-1$$ und $$f=1$$ und somit gilt $$n - e + f = n - (n-1) + 1 = n-n+1+1 = 2$$. Ist $$G$$ kein Baum, so sei $$k$$ eine Kante, die auf einem Kreis von $$G$$ liegt. Graph $$G$$ muss einen Kreis enthalten, da er sonst nach Definition ein Baum wäre. Betrachte $$G' = G-k$$: Der zusammenhängende, ebene Graph $$G'$$ hat nun $$n$$ Knoten, $$e-1$$ Kanten und $$f-1$$ Facetten. Der Zusammenhang bleibt erhalten, da lediglich eine Kante aus einem Kreis entfernt wird und die durch diese Kante verbundenen Knoten über den Rest der Kanten im vorherigen Kreis weiterhin mit allen Knoten verbunden bleiben. Der Graph ist weiterhin eben, da dem Graphen lediglich eine Kante entfernt wird, also keine neue Kante eine Überkreuzung erzwingen kann. Die Facettenzahl reduziert sich um $$1$$, da das Entfernen der Kante einen Kreis öffnet und somit die vorherig von ihm eingeschlossene Facette nicht mehr besteht. Nach Induktionsvoraussetzung gilt für $$G'$$ die Euler-Charakteristik, also $$n - (e-1) + (f-1) = 2 \Leftrightarrow n - e + f = 2$$. Also gilt die Euler-Charakteristik auch für $$G$$.
+
+<!-- Kontrollfragen: Abschnitt 3 -->
+<div class="kontrollfragen panel-group" id="kontrollfragen_03" role="tablist" aria-multiselectable="false">
+
+    <!-- Beweisaufgabe 3-1 -->
+    <div class="panel panel-warning" id="frage_3_1">
+        <div class="panel-heading" role="tab" id="frage_heading_3_1" data-toggle="collapse" data-parent="#kontrollfragen_03" href="#frage_content_3_1" aria-expanded="false" aria-controls="frage_content_3_1">
+            <h4 class="panel-title collapsed"><span class="glyphicon glyphicon-edit"></span> Beweisaufgabe 3 - Kannst du's zeigen?</h4>
+        </div>
+        <div id="frage_content_3_1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="frage_heading_3_1">
+            <div class="panel-body proof-question" data-hint-time="1" data-finish-time="2">
+                <!-- Beweisaufgabe -->
+                <div class="task">
+                    Sei $$G$$ ein einfacher, ebener Graph mit mindestens drei Knoten, dann gilt $$|E (G )| \leq 3|V (G )| − 6$$.
+                </div>
+
+                <!-- Hinweise --->
+                <div class="hint"> <h5>Hinweise</h5>
+                    Nutze das duale Handshake-Lemma: $$\sum l(F_i ) = 2 · |E (G )|$$, wobei $$l(F_i)$$ die Länge der Facette $$F_i$$ bezeichnet.
+                </div>
+                <!-- Musterlösung -->
+                <div class="solution"> <h5>Musterlösung</h5>
+                  Wir wollen zeigen, dass $$e \leq 3n - 6$$. <br><br>
+                  Aus $$\sum l(F_i ) = 2 · |E (G )|$$ folgt $$3 f \leq 2 · |E (G )|$$, da in einem einfachen Graphen – also ohne Mehrfachkanten – jede Facette von Mindestens 3 Kanten umschlossen wird.<br><br>
+
+                  Betrachten wir nun die Eulercharakteristik und formen diese äquivalent um, um $$f$$ zu ersetzen: $$n - e + f = 2 \Leftrightarrow 3n - 3e + f = 6$$. Setzen wir nun obige Ungleichung ein: $$6 = 3n - 3e + 3f \leq 3n - 3e + 2e$$<br><br>
+                  $$\Rightarrow 6 \leq 3n - 3e + 2e \Leftrightarrow e \leq 3n - 6$$.<br><br>
+
+                  Somit haben wir mit Hilfe der Eulercharakteristik gezeigt, dass in jedem planaren Graphen die Kantenzahl durch die Knotenzahl linear beschränkt wird (anders als bei nichtplanaren Graphen).
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="content-resources-divider">
     <hr>
@@ -389,11 +443,11 @@
 <!-- Abschnitt I: Quellen und Weiterführendes Material -->
 <h3 id="anchor_navigation-sources">I. Quellen und weiterführendes Material</h3>
 <p>
-    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="http://de.wikipedia.org/wiki/Graphentheorie" target="_blank">Graphentheorie</a> existieren weitere Ressourcen, die ich zum tiefgehenderen Studium besonders empfehle:
+    Neben zahlreichen Wikipedia-Artikeln aus dem Themengebiet der <a href="http://de.wikipedia.org/wiki/Graphentheorie" target="_blank">Graphentheorie</a> existieren weitere Ressourcen, die ich zum tiefergehenden Studium besonders empfehle:
 <dl>
-    <dt><a href="http://www.inf.fu-berlin.de/users/rote/Lere/2001-SS/Graphentheorie/Diestel-GraphentheorieII.pdf" target="_blank">R. Diestel - Graphentheorie (Springer, 2000)</a></dt>
+    <dt><a href="http://www.esi2.us.es/~mbilbao/pdffiles/DiestelGT.pdf" target="_blank">R. Diestel - Graphentheorie (Springer, 2000)</a></dt>
     <dd>Standardwerk mit allen Termini, wichtigen Beweisen und Aufgaben.</dd>
-    <dt><a href="https://www.amazon.de/Introduction-Graph-Theory-Featured-Titles/dp/0130144002" target="_blank">Douglas B. Wests Introduction to Graph Theory, 2nd ed.</a></dt>
+    <dt><a href="https://www.amazon.de/Introduction-Graph-Theory-Featured-Titles/dp/0130144002" target="_blank">Douglas B. Wests - Introduction to Graph Theory (Prentice Hall, 2001)</a></dt>
     <dd>Standardwerk (Englisch) mit allen Termini, wichtigen Beweisen und Aufgaben.</dd>
 </dl>
 

@@ -227,15 +227,17 @@ function getFullGraphEdges(nodes) {
 }
 
 $('.graph-switcher input').on('change', '',function() {
-  activateGraph($(this).attr('data-path'));
+  activateGraph($(this).attr('data-path'),'.full-graph', '.graph-switcher', false);
 });
 
 $('.dual-graph-switcher input').on('change', '',function() {
-  activateGraph($(this).attr('data-path'),'.dual-graph','.dual-graph-switcher');
+  activateGraph($(this).attr('data-path'),'.dual-graph','.dual-graph-switcher', false);
 });
 
-function activateGraph(activeId, className = '.full-graph', switchClass = '.graph-switcher') {
-  activateGraphButton(activeId, switchClass);
+function activateGraph(activeId, className = '.full-graph', switchClass = '.graph-switcher', button=true) {
+  if(button) {
+    activateGraphButton(activeId, switchClass);
+  }
   $(className).addClass('hidden-graph');
   $('#' + activeId).removeClass('hidden-graph');
 }
@@ -258,7 +260,7 @@ function randomAnimate(callback) {
 
 function activateGraphButton(dataPath, className) {
   $(className + ' .btn').removeClass('active');
-  $("[data-path='" + dataPath + "']").parent().addClass('active');
+  $('[data-path="' + dataPath + '"]').parent().addClass('active');
 }
 
 function showK3_3ProofOne() {
@@ -344,6 +346,8 @@ function highlightEdgesSync(graph, selector, col = 'blue') {
 }
 
 function showDualExampleOne() {
+  $('#dual-graph-button').removeClass('hidden');
+
   activateGraph('dualGraph', '.dual-graph', '.dual-graph-switcher');
   dualGraph.add([
     { group: "nodes", data: { id: "a'" }, position: { x: 93, y: 125 }, classes: 'dual' }
@@ -360,6 +364,8 @@ function showDualExampleOne() {
 }
 
 function showDualExampleTwo() {
+  $('#dual-graph-button').removeClass('hidden');
+
   activateGraph('dualGraph', '.dual-graph', '.dual-graph-switcher');
   dualGraph.add([
     { group: "edges", data: { id: "a'b'", source: "a'", target: "b'"} , classes: 'dual' }
