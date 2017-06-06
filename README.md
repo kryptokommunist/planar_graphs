@@ -1,4 +1,4 @@
-##A learning website about planar graphs
+## A learning website about planar graphs
 
 * partially includes graph visualization javascript magic (http://js.cytoscape.org).
 
